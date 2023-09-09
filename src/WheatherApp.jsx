@@ -40,6 +40,16 @@ export const WheatherApp = () => {
                 />
                 <button type='submit'>Buscar</button>
             </form>
+            {data && (
+                <div>
+                    <h2>Ciudad: {data.name}</h2>
+                    <h3>Temperatura: {data.main?.temp - 273.15} °C</h3>
+                    <h3>Humedad: {data.main.humidity} %</h3>
+                    <h3>Presión: {data.main.pressure} hPa</h3>
+                    <h3>Descripción: {data.weather[0].description}</h3>
+                    <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="" />
+                </div>
+            )}
         </div>
     )
 }
